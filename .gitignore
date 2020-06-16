@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# project files ignore
+f1db.sql
+resutlts_test_data.json

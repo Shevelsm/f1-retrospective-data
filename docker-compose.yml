@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+  # MySQL container
+  mysql:
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+      args:
+        - MYSQL_VERSION=5.7
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: raw_data
+    ports:
+      - "3306:3306"
+  # Streamsets container
+  sdc:
+    build:
+      context: ./sdc
+      dockerfile: Dockerfile
+      args:
+        - SDC_VERSION=latest
+        - SDC_LIBS=streamsets-datacollector-jdbc-lib
+    volumes:
+      - ./sdc/data:/data
+    ports:
+      - "18630:18630"
