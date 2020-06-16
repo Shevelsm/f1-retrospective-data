@@ -1,3 +1,6 @@
 ARG MYSQL_VERSION=latest
 FROM mysql:${MYSQL_VERSION}
-# COPY ./ddl_rawdata.sql /docker-entrypoint-initdb.d
+RUN apt-get update && apt-get install -y wget
+RUN wget -P /docker-entrypoint-initdb.d/ http://ergast.com/downloads/f1db.sql.gz
+RUN gunzip /docker-entrypoint-initdb.d/f1db.sql.gz
+# COPY ./db_image_raw_data.sql /docker-entrypoint-initdb.d

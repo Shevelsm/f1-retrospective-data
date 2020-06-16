@@ -129,5 +129,4 @@ dmypy.json
 .pyre/
 
 # project files ignore
-f1db.sql
-resutlts_test_data.json
+support_data
