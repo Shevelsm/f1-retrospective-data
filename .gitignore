@@ -130,3 +130,4 @@ dmypy.json
 
 # project files ignore
 support_data
+sdc/data
