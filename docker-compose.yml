@@ -13,18 +13,6 @@ services:
       MYSQL_DATABASE: raw_data
     ports:
       - "3306:3306"
-  # # Streamsets container
-  # sdc:
-  #   build:
-  #     context: ./sdc
-  #     dockerfile: Dockerfile
-  #     args:
-  #       - SDC_VERSION=latest
-  #       - SDC_LIBS=streamsets-datacollector-jdbc-lib
-  #   volumes:
-  #     - ./sdc/data:/data
-  #   ports:
-  #     - "18630:18630"
   # # Apache Airflow container
   # airflow:
   #   image: puckel/docker-airflow:1.10.4
