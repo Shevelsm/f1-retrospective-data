@@ -1,3 +1,6 @@
+import os
+import shutil
+
 from pyspark import SparkConf
 from pyspark.sql import SparkSession, SQLContext
 from pyspark.sql.functions import col
@@ -116,7 +119,9 @@ status_df = (
 st = status_df.alias("st")
 
 
-# Transform data
+# Transform data and save data
+shutil.rmtree("output/*", ignore_errors=True)
+
 gp_results_df = (
     re.join(dr, re.driverId == dr.driverId, how="inner")
     .join(ra, re.raceId == ra.raceId, how="inner")
@@ -137,6 +142,7 @@ gp_results_df = (
 )
 gr = gp_results_df.alias("gr")
 
+
 circutis_laps_df = (
     lT.join(dr, lT.driverId == dr.driverId, how="inner")
     .join(ra, lT.raceId == ra.raceId, how="inner")
@@ -152,14 +158,6 @@ circutis_laps_df = (
 )
 cl = circutis_laps_df.alias("cl")
 
-opts_gr = {
-    "table": "gp_results",
-    "db": "docker",
-    "user": "dbadmin",
-    "password": "",
-    "host": "vertica",
-}
-
-gr.write.save(
-    format="com.vertica.spark.datasource.DefaultSource", mode="overwrite", **opts_gr
-)
+# Write data to parquets files
+gr.write.parquet("output/gp_results.parquet")
+cl.write.parquet("output/circuits_laps.parquet")

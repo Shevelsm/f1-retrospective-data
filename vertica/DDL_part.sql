@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS gp_results (
 );
 
 -- Table with laptimes on each circuit
-CREATE TABLE IF NOT EXISTS circutis_laps (
+CREATE TABLE IF NOT EXISTS circuits_laps (
     circuit VARCHAR(255),
     season INT,
     driver VARCHAR(255),

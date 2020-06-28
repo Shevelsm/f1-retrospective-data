@@ -44,12 +44,16 @@ services:
     ports:
       - 5433:5433
     volumes:
-      - ./vertica/:/tmp/input
+      - ./vertica:/tmp/ddl
+      - ./pyspark/spark2vertica/output:/tmp/input
   # Jupyter Notebook with pyspark
   pyspark-notebook:
     image: jupyter/pyspark-notebook
+    build:
+      context: ./pyspark
+      dockerfile: Dockerfile
     volumes:
-      - ./support_data/notebooks:/home/jovyan/work
+      - ./pyspark/spark2vertica:/home/jovyan/spark2vertica
     ports:
       - "8888:8888"
       - "4041:4041"
