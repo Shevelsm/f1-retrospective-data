@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 # project files ignore
+.vscode
 f1db.sql
 pyspark/spark2vertica/output
