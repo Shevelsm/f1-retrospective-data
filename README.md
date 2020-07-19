@@ -59,7 +59,7 @@
     $ docker-compose up
 ```
 Запускаются 3 контейнера (mysql, pyspark, vertica)
-```
+```bash
 Starting f1-retrospective-data_mysql_1            ... done
 Starting f1-retrospective-data_pyspark-notebook_1 ... done
 Starting f1-retrospective-data_vertica_1          ... done
@@ -68,7 +68,7 @@ Starting f1-retrospective-data_vertica_1          ... done
 ```bash
     python run_project.py
 ```
-Как только завершатся все процессы, будет запущен jupyter notebook с примером визуализации простой аналитики при помощи пакета `veticapy`
+Как только завершатся все процессы, будет запущен Jupyter notebook с примером визуализации простой аналитики при помощи пакета `veticapy`
 Для примера приведена аналитика по пилоту, команде и нации пилота.
 Значения можно изменить в первой ячейке итогового ноутбука:
 ```python
