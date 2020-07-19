@@ -17,7 +17,7 @@
 
 ## Схема проекта
 На рисунке ниже изображена принципиальная схема проекта:
-![principal_schema](/support-data/pics/F1_retrospective_DB.png "project schema")
+![principal_schema](/support_data/pics/F1_retrospective_DB.png "project schema")
 
 \* Звездочками и красными стрелками показаны задачи и инструменты планируемые к внедрению в проект.
 
