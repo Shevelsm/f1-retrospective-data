@@ -27,7 +27,7 @@ os.system(
 
 logging.info(" Waiting for transfering data to vertica container...")
 os.system("docker restart f1-retrospective-data_vertica_1")
-time.sleep(30)
+time.sleep(10)
 
 logging.info("Stage #3. Read parquet files with tables")
 os.system(
